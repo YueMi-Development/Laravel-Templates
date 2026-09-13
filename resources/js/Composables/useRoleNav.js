@@ -35,12 +35,30 @@ export function useRoleNav(initialRole = null) {
                 active: route().current('dashboard.admin'),
                 icon: 'dashboard',
             });
+            items.push({
+                label: 'User Management',
+                href: route('admin.users.index'),
+                active: route().current('admin.users.*'),
+                icon: 'users',
+            });
+            items.push({
+                label: 'Monitoring',
+                href: route('admin.monitoring.index'),
+                active: route().current('admin.monitoring.*'),
+                icon: 'monitoring',
+            });
         } else if (role === 'staff') {
             items.push({
                 label: 'Dashboard',
                 href: route('dashboard.staff'),
                 active: route().current('dashboard.staff'),
                 icon: 'dashboard',
+            });
+            items.push({
+                label: 'Monitoring',
+                href: route('staff.monitoring.index'),
+                active: route().current('staff.monitoring.*'),
+                icon: 'monitoring',
             });
         } else {
             items.push({
