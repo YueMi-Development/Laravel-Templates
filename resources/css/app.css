@@ -1,11 +1,31 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+@layer base {
+    :root {
+        --theme-bg: #ffffff;
+        --theme-bg-secondary: #f3f4f6;
+        --theme-text: #111827;
+        --theme-text-muted: #6b7280;
+        --theme-border: #e5e7eb;
+        --theme-terminal-bg: #1f2937;
+    }
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    .dark {
+        --theme-bg: #111827;
+        --theme-bg-secondary: #1f2937;
+        --theme-text: #f9fafb;
+        --theme-text-muted: #9ca3af;
+        --theme-border: #374151;
+        --theme-terminal-bg: #030712;
+    }
+}
+
+html {
+    @apply scroll-smooth;
+}
+
+body {
+    @apply bg-[var(--theme-bg)] text-[var(--theme-text)];
 }
